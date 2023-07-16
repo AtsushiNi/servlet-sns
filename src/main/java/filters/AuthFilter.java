@@ -16,7 +16,10 @@ import javax.servlet.http.HttpSession;
 @WebFilter(urlPatterns = {"/jsp/*"})
 public class AuthFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		String targetURI = ((HttpServletRequest)request).getRequestURI();
+		HttpServletRequest httpRequest = (HttpServletRequest)request;
+		HttpServletResponse httpResponse = (HttpServletResponse)response;
+		
+		String targetURI = httpRequest.getRequestURI();
 
 		if(
 			targetURI.equals("/ServletSNS/jsp/login.jsp")
@@ -26,21 +29,21 @@ public class AuthFilter implements Filter {
 			return;
 		}
 
-		HttpSession session = ((HttpServletRequest)request).getSession();
+		HttpSession session = httpRequest.getSession();
 		
 		if(session == null) {
-			session = ((HttpServletRequest)request).getSession(true);
+			session = httpRequest.getSession(true);
 			session.setAttribute("targetURI", targetURI);
 			session.setAttribute("status", "error");
 			
-			((HttpServletResponse)response).sendRedirect("login.jsp");
+			httpResponse.sendRedirect("login.jsp");
 		} else {
 			String user = (String)session.getAttribute("user");
 			if(user == null) {
 				session.setAttribute("targetURI", targetURI);
 				session.setAttribute("status", "error");
 				
-				((HttpServletResponse)response).sendRedirect("login.jsp");
+				httpResponse.sendRedirect("login.jsp");
 			}
 		}
 

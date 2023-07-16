@@ -4,6 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.User;
+import dao.UserDAO;
+
 public class LoginAction extends Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
@@ -12,10 +15,12 @@ public class LoginAction extends Action {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
-		if(!password.equals("a")) { // 認証失敗:とりあえず
+		UserDAO dao = new UserDAO();
+		User user = dao.search(email, password);
+		if(user == null) { // 認証失敗:とりあえず
 			return "login.jsp";
 		} else {
-			session.setAttribute("user", "user"); // とりあえず
+			session.setAttribute("user", user); // とりあえず
 			String status = (String)session.getAttribute("status");
 			if(status != null && status.equals("error")) {
 				session.setAttribute("status", "login");

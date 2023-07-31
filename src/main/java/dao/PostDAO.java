@@ -7,16 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bean.Post;
+import bean.User;
 
 public class PostDAO extends DAO {
-	public List<Post> findAllByUserId(int user_id) throws Exception {
+	public List<Post> findAllByUser(User user) throws Exception {
 		List<Post> posts = new ArrayList<Post>();
 		
 		Connection con = getConnection();
 		
 		PreparedStatement st;
 		st = con.prepareStatement("select * from post where user_id=?");
-		st.setInt(1, user_id);
+		st.setInt(1, user.getId());
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
@@ -24,7 +25,7 @@ public class PostDAO extends DAO {
 			post.setId(rs.getInt("id"));
 			post.setText(rs.getString("text"));
 			post.setCreatedAt(rs.getTimestamp("created_at"));
-			post.setUserId(rs.getInt("user_id"));
+			post.setUser(user);
 			posts.add(post);
 		}
 		

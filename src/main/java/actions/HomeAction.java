@@ -25,14 +25,16 @@ public class HomeAction extends Action {
 		List<Post> posts = new ArrayList<Post>();
 		PostDAO postDAO = new PostDAO();
 		for(User follower : followers) {
-			posts.addAll(postDAO.findAllByUserId(follower.getId()));
+			posts.addAll(postDAO.findAllByUser(follower));
 		}
+		System.out.println(posts);
 		// 投稿が最近の順にソート
 		List<Post> sortedPosts = posts
 			.stream()
 			.sorted((a, b) -> (a.getCreatedAt().getTime() - b.getCreatedAt().getTime())<0 ? 1 : -1)
 			.collect(Collectors.toList());
 
+		System.out.println(sortedPosts);
 		request.setAttribute("posts", sortedPosts);
 		return "home.jsp";
 	}

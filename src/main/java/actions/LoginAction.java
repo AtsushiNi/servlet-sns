@@ -27,7 +27,7 @@ public class LoginAction extends Action {
 				return ((String)session.getAttribute("targetURI")).substring(16);
 			} else {
 				session.setAttribute("targetURI", "/ServletSNS/jsp/home.jsp");
-				return "home.jsp";
+				return "Home.action";
 			}
 		}
 	}

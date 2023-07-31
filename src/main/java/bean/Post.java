@@ -6,7 +6,7 @@ public class Post implements java.io.Serializable {
 	private int id;
 	private String text;
 	private Timestamp createdAt;
-	private int userId;
+	private User user;
 
 	public int getId() {
 		return id;
@@ -26,10 +26,10 @@ public class Post implements java.io.Serializable {
 	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

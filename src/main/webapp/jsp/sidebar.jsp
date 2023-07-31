@@ -17,9 +17,9 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="shopping-cart"></span>
-          #######
+        <a class="nav-link" href="Profile.action">
+          <span data-feather="user"></span>
+          Profile
         </a>
       </li>
       <li class="nav-item">

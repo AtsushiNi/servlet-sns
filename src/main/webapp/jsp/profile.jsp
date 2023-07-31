@@ -15,6 +15,9 @@
 
 		<!-- メイン -->
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+			<div style="text-align: center;">
+	   			<img src="../assets/avatar.jpeg" class="rounded-circle shadow-4" style="width:150px; height:150px; border: silver solid 1px;" />
+	   		</div>
 		</main>
 	</div>
 </div>

@@ -27,7 +27,7 @@ public class HomeAction extends Action {
 		for(User follower : followers) {
 			posts.addAll(postDAO.findAllByUser(follower));
 		}
-		System.out.println(posts);
+
 		// 投稿が最近の順にソート
 		List<Post> sortedPosts = posts
 			.stream()

@@ -17,7 +17,7 @@ public class PostDAO extends DAO {
 		
 		PreparedStatement st;
 		st = con.prepareStatement("select * from post where user_id=?");
-		st.setInt(1, user.getId());
+		st.setString(1, user.getId());
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {

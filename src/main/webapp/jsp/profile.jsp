@@ -15,8 +15,30 @@
 
 		<!-- メイン -->
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-			<div style="text-align: center;">
+			<div>
 	   			<img src="../assets/avatar.jpeg" class="rounded-circle shadow-4" style="width:150px; height:150px; border: silver solid 1px;" />
+	   			<h4>${user.name}</h4>
+	   			<div>${user.id}</div>
+	   			<div>
+	   				<span class="font-weight-bold">${followerCount}</span>
+	   				<span>フォロワー</span>
+	   				<span class="font-weight-bold">${followedCount}</span>
+	   				<span>フォロー中</span>
+	   			</div>
+	   		</div>
+	   		<div>
+		      <c:forEach var="post" items="${posts}">
+		      	<div class="card">
+		      		<div style="display: flex">
+			      		<img src="../assets/avatar.jpeg" class="rounded-circle shadow-4" style="width:50px; height:50px; margin: 10px;" />
+			      		<div style="width:100%;">
+				      		<div style="margin: 5px 0; font-weight:bold;">${post.user.name}</div>
+				      		<div>${post.text}</div>
+				      		<div style="text-align:right;">${post.createdAt}</div>
+				      	</div>
+				    </div>
+		      	</div>
+		      </c:forEach>
 	   		</div>
 		</main>
 	</div>

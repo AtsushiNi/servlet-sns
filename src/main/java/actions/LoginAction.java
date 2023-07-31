@@ -12,11 +12,11 @@ public class LoginAction extends Action {
 		
 		HttpSession session = request.getSession();
 		
-		String email = request.getParameter("email");
+		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 
 		UserDAO dao = new UserDAO();
-		User user = dao.search(email, password);
+		User user = dao.search(id, password);
 		if(user == null) { // 認証失敗:とりあえず
 			return "login.jsp";
 		} else {

@@ -57,6 +57,31 @@ public class UserDAO extends DAO {
 		return users;
 	}
 	
+	public User findById(String id) throws Exception {
+		User user = null;
+		
+		Connection con = getConnection();
+		
+		PreparedStatement st;
+		st = con.prepareStatement("select * from \"user\" where id=?");
+		st.setString(1, id);
+		ResultSet rs = st.executeQuery();
+		
+		System.out.println(st.toString());
+		while(rs.next()) {
+			user = new User();
+			user.setId(rs.getString("id"));
+			user.setName(rs.getString("name"));
+			user.setEmail(rs.getString("email"));
+			user.setPassword(rs.getString("password"));
+		}
+		
+		st.close();
+		con.close();
+		return user;
+	}
+
+	
 	public List<User> getFollowers(String id) throws Exception {
 		List<User> users = new ArrayList<User>();
 

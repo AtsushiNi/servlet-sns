@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.User;
+import dao.UserDAO;
 
 @WebFilter(urlPatterns = {"/jsp/*"})
 public class AuthFilter implements Filter {
@@ -40,14 +41,22 @@ public class AuthFilter implements Filter {
 			
 			httpResponse.sendRedirect("login.jsp");
 		} else {
-			User user = (User)session.getAttribute("currentUser");
-			if(user == null) {
+			String userId = (String)session.getAttribute("userId");
+			if(userId == null) {
 				session.setAttribute("targetURI", targetURI);
 				session.setAttribute("status", "error");
 				
 				httpResponse.sendRedirect("login.jsp");
 			} else {
-				request.setAttribute("currentUser", user);
+				UserDAO dao = new UserDAO();
+				User currentUser = null;
+				try {
+					currentUser = dao.findById(userId);
+				} catch(Exception e) {
+					System.out.println(e);
+				}
+				
+				request.setAttribute("currentUser", currentUser);
 			}
 		}
 		

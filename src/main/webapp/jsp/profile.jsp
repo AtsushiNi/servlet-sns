@@ -46,14 +46,14 @@
 								   			</div>
 								   		</div>
 							   			<form action="EditProfile.action" method="post" enctype="multipart/form-data">
-							   				<input type="file" id="avatar-image-input" style="display:none;"/>
-							   				<input type="file" id="home-image-input" style="display:none;"/>
+							   				<input name="avatar-image" type="file" id="avatar-image-input" style="display:none;"/>
+							   				<input name="home-image" type="file" id="home-image-input" style="display:none;"/>
 
 								   			<label for="modal-name-input" style="margin-top:80px;">名前</label>
-								   			<input class="form-control" id="modal-name-input" type="text" value="${currentUser.name}">
+								   			<input name="name" class="form-control" id="modal-name-input" type="text" value="${currentUser.name}">
 	
 								   			<label for="modal-description-input" style="margin-top:30px;">自己紹介</label>
-								   			<textarea class="form-control" id="modal-description-input" type="text"></textarea>
+								   			<textarea name="self-description" class="form-control" id="modal-description-input" type="text"></textarea>
 								   			<input type="submit" id="edit-profile-submit" style="display:none;"/>
 							   			</form>
 									</div>

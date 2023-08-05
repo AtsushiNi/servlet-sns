@@ -9,7 +9,7 @@ public class LogoutAction extends Action {
 		
 		HttpSession session = request.getSession();
 		
-		session.removeAttribute("user");
+		session.removeAttribute("currentUser");
 		
 		return "login.jsp";
 	}

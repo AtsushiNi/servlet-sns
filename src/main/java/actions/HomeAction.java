@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import bean.Post;
 import bean.User;
@@ -16,9 +15,8 @@ import dao.UserDAO;
 public class HomeAction extends Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		HttpSession session = request.getSession();
-		User currentUser = (User)session.getAttribute("user");
-
+		User currentUser = (User)request.getAttribute("currentUser");
+		
 		UserDAO userDAO = new UserDAO();
 		List<User> followers = userDAO.getFollowers(currentUser.getId());
 

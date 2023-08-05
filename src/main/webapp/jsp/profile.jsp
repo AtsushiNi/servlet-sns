@@ -50,7 +50,7 @@
 							   				<input type="file" id="home-image-input" style="display:none;"/>
 
 								   			<label for="modal-name-input" style="margin-top:80px;">名前</label>
-								   			<input class="form-control" id="modal-name-input" type="text" value="${user.name}">
+								   			<input class="form-control" id="modal-name-input" type="text" value="${currentUser.name}">
 	
 								   			<label for="modal-description-input" style="margin-top:30px;">自己紹介</label>
 								   			<textarea class="form-control" id="modal-description-input" type="text"></textarea>
@@ -63,7 +63,7 @@
 						</div>
 					</div>
 
-		   			<h4>${user.name}</h4>
+		   			<h4>${currentUser.name}</h4>
 		   			<div>${user.id}</div>
 		   			<div>
 		   				<span class="font-weight-bold">${followerCount}</span>

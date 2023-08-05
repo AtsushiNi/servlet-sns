@@ -20,7 +20,8 @@ public class LoginAction extends Action {
 		if(user == null) { // 認証失敗:とりあえず
 			return "login.jsp";
 		} else {
-			session.setAttribute("user", user); // とりあえず
+			session.setAttribute("currentUser", user); // とりあえず
+			request.setAttribute("currentUser", user);
 			String status = (String)session.getAttribute("status");
 			if(status != null && status.equals("error")) {
 				session.setAttribute("status", "login");

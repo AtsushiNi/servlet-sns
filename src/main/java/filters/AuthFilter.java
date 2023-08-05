@@ -40,15 +40,17 @@ public class AuthFilter implements Filter {
 			
 			httpResponse.sendRedirect("login.jsp");
 		} else {
-			User user = (User)session.getAttribute("user");
+			User user = (User)session.getAttribute("currentUser");
 			if(user == null) {
 				session.setAttribute("targetURI", targetURI);
 				session.setAttribute("status", "error");
 				
 				httpResponse.sendRedirect("login.jsp");
+			} else {
+				request.setAttribute("currentUser", user);
 			}
 		}
-
+		
 		chain.doFilter(request, response);
 	}
 	

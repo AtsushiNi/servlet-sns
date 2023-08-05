@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ include file="head.jsp" %>
+<jsp:include page="head.jsp">
+	<jsp:param name="page" value="profile" />
+</jsp:include>
 
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
@@ -15,13 +17,13 @@
 
 		<!-- メイン -->
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10">
-			<div style="margin: 0 100px;max-width:700px;">
+			<div class="main-content">
 				<div>
 					<img src="../assets/image.png" style="width:100%;"/>
-		   			<img src="../assets/avatar.jpeg" class="rounded-circle shadow-4" style="width:150px; height:150px; border: silver solid 1px;position:absolute;left:130px;top:200px;" />
+		   			<img src="../assets/avatar.jpeg" class="rounded-circle shadow-4" id="avatar" />
 
-					<div style="height:80px;width:100%;display:flex;justify-content:flex-end;align-items:flex-end;">
-						<button class="btn btn-outline-secondary" style="border-radius:50px;" data-toggle="modal" data-target="#modal">プロフィールを編集</button>
+					<div id="profile-edit-button-section">
+						<button class="btn btn-outline-secondary" id="profile-edit-button" data-toggle="modal" data-target="#modal">プロフィールを編集</button>
 						<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered" role="document"" style="max-width:800px;">
 								<div class="modal-content">
@@ -31,16 +33,16 @@
 									</div>
 
 									<div class="modal-body"> 
-										<div id="modal-home-image-wrapper" style="position:relative;height:250px;">
-											<img id="modal-home-image" src="../assets/image.png" style="width:100%;height:300px;object-fit:cover;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);"/>
-								   			<div class="rounded-circle" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:5vw;width:5vw;background:black;opacity:0.5"></div>
-								   			<img src="../assets/camera.png" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:25%;"/>
+										<div id="modal-home-image-wrapper" >
+											<img id="modal-home-image" src="../assets/image.png"/>
+								   			<div class="rounded-circle" id="modal-home-image-circle"></div>
+								   			<img src="../assets/camera.png" id="modal-home-image-icon" />
 								   		</div>
-										<div class="rounded-circle shadow-4" id="modal-avatar-wrapper" style="position:absolute;left:40px;top:200px;width:150px; height:150px; border: silver solid 1px;">
+										<div class="rounded-circle shadow-4" id="modal-avatar-wrapper" >
 											<div style="position:relative;height:100%;">
-									   			<img class="rounded-circle" src="../assets/avatar.jpeg" id="modal-avatar" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:100%;width:100%;"/>
-									   			<div class="rounded-circle" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:40%;width:40%;background:black;opacity:0.5"></div>
-									   			<img src="../assets/camera.png" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:25%;"/>
+									   			<img class="rounded-circle" src="../assets/avatar.jpeg" id="modal-avatar"/>
+									   			<div class="rounded-circle" id="modal-avatar-circle"></div>
+									   			<img src="../assets/camera.png" id="modal-avatar-icon"/>
 								   			</div>
 								   		</div>
 							   			<form action="#" method="post" enctype="multipart/form-data">

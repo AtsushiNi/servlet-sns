@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+.main-content {
+	margin: 0 100px;
+	max-width: 700px;
+}
+
+#avatar {
+	width: 150px;
+	height: 150px;
+	border: silver solid 1px;
+	position: absolute;
+	left: 130px;
+	top: 200px;
+}
+
+#profile-edit-button-section {
+	height: 80px;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+#profile-edit-button {
+	border-radius: 50px;
+}
+
+#modal-home-image-wrapper {
+	position: relative;
+	height: 250px;
+}
+
+#modal-home-image {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+#modal-home-image-circle {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	height: 5vw;
+	width: 5vw;
+	background: black;
+	opacity: 0.5;
+}
+
+#modal-home-image-icon {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	height: 25%;
+}
+
+#modal-avatar-wrapper {
+	position: absolute;
+	left: 40px;
+	top: 200px;
+	width: 150px;
+	height: 150px;
+	border: silver solid 1px;
+}
+
+#modal-avatar {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	height: 100%;
+	width: 100%;
+}
+
+#modal-avatar-circle {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	height: 40%;
+	width: 40%;
+	background: black;
+	opacity: 0.5;
+}
+
+#modal-avatar-icon {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	height: 25%;
+}
+
+

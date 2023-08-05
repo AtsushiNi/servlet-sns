@@ -31,7 +31,11 @@
 									</div>
 
 									<div class="modal-body"> 
-										<img src="../assets/image.png" style="width:100%;"/>
+										<div id="modal-home-image-wrapper" style="position:relative;height:250px;">
+											<img id="modal-home-image" src="../assets/image.png" style="width:100%;height:300px;object-fit:cover;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);"/>
+								   			<div class="rounded-circle" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:5vw;width:5vw;background:black;opacity:0.5"></div>
+								   			<img src="../assets/camera.png" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:25%;"/>
+								   		</div>
 										<div class="rounded-circle shadow-4" id="modal-avatar-wrapper" style="position:absolute;left:40px;top:200px;width:150px; height:150px; border: silver solid 1px;">
 											<div style="position:relative;height:100%;">
 									   			<img class="rounded-circle" src="../assets/avatar.jpeg" id="modal-avatar" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:100%;width:100%;"/>
@@ -41,6 +45,7 @@
 								   		</div>
 							   			<form action="#" method="post" enctype="multipart/form-data">
 							   				<input type="file" id="avatar-image-input" style="display:none;"/>
+							   				<input type="file" id="home-image-input" style="display:none;"/>
 							   			</form>
 
 							   			<label for="modal-name-input" style="margin-top:80px;">名前</label>
@@ -83,6 +88,6 @@
 	</div>
 </div>
 <script>feather.replace()</script>
-<script src="../assets/js/upload_avatar.js"></script>
+<script src="../assets/js/upload_image.js"></script>
 </body>
 </html>

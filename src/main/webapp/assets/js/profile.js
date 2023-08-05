@@ -42,3 +42,13 @@ document.getElementById("modal-home-image-wrapper").addEventListener("click", fu
 	let button = document.getElementById("home-image-input");
 	button.click();
 })
+
+
+/**
+ * プロフィール修正を保存する
+ */
+
+document.getElementById("modal-save-button").addEventListener("click", function(e) {
+	let submitButton = document.getElementById("edit-profile-submit");
+	submitButton.click();
+})

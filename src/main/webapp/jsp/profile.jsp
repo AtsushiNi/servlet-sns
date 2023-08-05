@@ -29,7 +29,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<h5 class="modal-title">プロフィールを編集</h5>
-										<button class="btn btn-secondary" style="border-radius:50px;" data-dismiss="modal" aria-label="close">保存</button>
+										<button class="btn btn-secondary" id="modal-save-button" style="border-radius:50px;" data-dismiss="modal" aria-label="close">保存</button>
 									</div>
 
 									<div class="modal-body"> 
@@ -45,16 +45,17 @@
 									   			<img src="../assets/camera.png" id="modal-avatar-icon"/>
 								   			</div>
 								   		</div>
-							   			<form action="#" method="post" enctype="multipart/form-data">
+							   			<form action="EditProfile.action" method="post" enctype="multipart/form-data">
 							   				<input type="file" id="avatar-image-input" style="display:none;"/>
 							   				<input type="file" id="home-image-input" style="display:none;"/>
+
+								   			<label for="modal-name-input" style="margin-top:80px;">名前</label>
+								   			<input class="form-control" id="modal-name-input" type="text" value="${user.name}">
+	
+								   			<label for="modal-description-input" style="margin-top:30px;">自己紹介</label>
+								   			<textarea class="form-control" id="modal-description-input" type="text"></textarea>
+								   			<input type="submit" id="edit-profile-submit" style="display:none;"/>
 							   			</form>
-
-							   			<label for="modal-name-input" style="margin-top:80px;">名前</label>
-							   			<input class="form-control" id="modal-name-input" type="text" value="${user.name}">
-
-							   			<label for="modal-description-input" style="margin-top:30px;">自己紹介</label>
-							   			<textarea class="form-control" id="modal-description-input" type="text"></textarea>
 									</div>
 
 								</div>
@@ -90,6 +91,6 @@
 	</div>
 </div>
 <script>feather.replace()</script>
-<script src="../assets/js/upload_image.js"></script>
+<script src="../assets/js/profile.js"></script>
 </body>
 </html>

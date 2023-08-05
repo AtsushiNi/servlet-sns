@@ -29,14 +29,27 @@
 										<h5 class="modal-title">プロフィールを編集</h5>
 										<button class="btn btn-secondary" style="border-radius:50px;" data-dismiss="modal" aria-label="close">保存</button>
 									</div>
-									<div class="modal-body">
+
+									<div class="modal-body"> 
 										<img src="../assets/image.png" style="width:100%;"/>
-							   			<img src="../assets/avatar.jpeg" class="rounded-circle shadow-4" style="width:150px; height:150px; border: silver solid 1px;position:absolute;left:40px;top:200px;" />
+										<div class="rounded-circle shadow-4" id="modal-avatar-wrapper" style="position:absolute;left:40px;top:200px;width:150px; height:150px; border: silver solid 1px;">
+											<div style="position:relative;height:100%;">
+									   			<img class="rounded-circle" src="../assets/avatar.jpeg" id="modal-avatar" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:100%;width:100%;"/>
+									   			<div class="rounded-circle" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:40%;width:40%;background:black;opacity:0.5"></div>
+									   			<img src="../assets/camera.png" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:25%;"/>
+								   			</div>
+								   		</div>
+							   			<form action="#" method="post" enctype="multipart/form-data">
+							   				<input type="file" id="avatar-image-input" style="display:none;"/>
+							   			</form>
+
 							   			<label for="modal-name-input" style="margin-top:80px;">名前</label>
 							   			<input class="form-control" id="modal-name-input" type="text" value="${user.name}">
+
 							   			<label for="modal-description-input" style="margin-top:30px;">自己紹介</label>
 							   			<textarea class="form-control" id="modal-description-input" type="text"></textarea>
 									</div>
+
 								</div>
 							</div>
 						</div>
@@ -70,5 +83,6 @@
 	</div>
 </div>
 <script>feather.replace()</script>
+<script src="../assets/js/upload_avatar.js"></script>
 </body>
 </html>

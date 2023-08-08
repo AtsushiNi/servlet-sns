@@ -9,12 +9,15 @@ create table "user" (
 	id varchar(100) primary key,
 	name varchar(100) not null,
 	email varchar(100) not null unique,
-	password varchar(100) not null
+	password varchar(100) not null,
+	selfDescription varchar(500),
+	avatarFileName varchar(100),
+	homeImageFileName varchar(100)
 );
 
-insert into "user" (id, name, email, password) values('@user', 'user', 'user@email.com', 'pass');
-insert into "user" (id, name, email, password) values('@user2', 'user2', 'user2@email.com', 'pass');
-insert into "user" (id, name, email, password) values('@user3', 'user3', 'user3@email.com', 'pass');
+insert into "user" (id, name, email, password, selfDescription, avatarFileName, homeImageFileName) values('@user', 'user', 'user@email.com', 'pass', '自己紹介', '@user_2023-08-08_22-46-20.jpg', '');
+insert into "user" (id, name, email, password, selfDescription, avatarFileName, homeImageFileName) values('@user2', 'user2', 'user2@email.com', 'pass', '', '', '');
+insert into "user" (id, name, email, password, selfDescription, avatarFileName, homeImageFileName) values('@user3', 'user3', 'user3@email.com', 'pass', '', '', '');
 
 /* post */
 create table post(

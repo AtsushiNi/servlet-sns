@@ -13,6 +13,7 @@ import java.sql.Statement;
 import javax.naming.InitialContext;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ import javax.sql.DataSource;
 import actions.Action;
 
 @WebServlet(urlPatterns = {"*.action"})
+@MultipartConfig(maxFileSize=1000000)
 public class FrontController extends HttpServlet {
 	public void init() throws ServletException {
 		System.out.println("init DB data");

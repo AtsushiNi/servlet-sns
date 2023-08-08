@@ -27,6 +27,9 @@ public class UserDAO extends DAO {
 			user.setName(rs.getString("name"));
 			user.setEmail(rs.getString("email"));
 			user.setPassword(rs.getString("password"));
+			user.setSelfDescription(rs.getString("selfDescription"));
+			user.setAvatarFileName(rs.getString("avatarFileName"));
+			user.setHomeImageFileName(rs.getString("homeImageFileName"));
 		}
 		
 		st.close();
@@ -49,6 +52,9 @@ public class UserDAO extends DAO {
 			user.setName(rs.getString("name"));
 			user.setEmail(rs.getString("email"));
 			user.setPassword(rs.getString("password"));
+			user.setSelfDescription(rs.getString("selfDescription"));
+			user.setAvatarFileName(rs.getString("avatarFileName"));
+			user.setHomeImageFileName(rs.getString("homeImageFileName"));
 			users.add(user);
 		}
 
@@ -74,6 +80,9 @@ public class UserDAO extends DAO {
 			user.setName(rs.getString("name"));
 			user.setEmail(rs.getString("email"));
 			user.setPassword(rs.getString("password"));
+			user.setSelfDescription(rs.getString("selfDescription"));
+			user.setAvatarFileName(rs.getString("avatarFileName"));
+			user.setHomeImageFileName(rs.getString("homeImageFileName"));
 		}
 		
 		st.close();
@@ -98,6 +107,9 @@ public class UserDAO extends DAO {
 			user.setName(rs.getString("name"));
 			user.setEmail(rs.getString("email"));
 			user.setPassword(rs.getString("password"));
+			user.setSelfDescription(rs.getString("selfDescription"));
+			user.setAvatarFileName(rs.getString("avatarFileName"));
+			user.setHomeImageFileName(rs.getString("homeImageFileName"));
 			users.add(user);
 		}
 
@@ -132,5 +144,19 @@ public class UserDAO extends DAO {
 		st.close();
 		con.close();
 		return followedCount;
+	}
+	
+	public void update(User user) throws Exception {
+		Connection con = getConnection();
+		PreparedStatement st;
+		st = con.prepareStatement("update \"user\" set name=?,email=?,password=?,selfDescription=?,avatarFileName=?,homeImageFileName=? where id=?");
+		st.setString(1, user.getName());
+		st.setString(2, user.getEmail());
+		st.setString(3, user.getPassword());
+		st.setString(4, user.getSelfDescription());
+		st.setString(5, user.getAvatarFileName());
+		st.setString(6, user.getHomeImageFileName());
+		st.setString(7, user.getId());
+		st.executeUpdate();
 	}
 }

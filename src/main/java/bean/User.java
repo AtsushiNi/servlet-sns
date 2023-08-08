@@ -5,7 +5,28 @@ public class User implements java.io.Serializable {
 	private String name;
 	private String email;
 	private String password;
+	private String selfDescription;
+	private String avatarFileName;
+	private String homeImageFileName;
 
+	public String getSelfDescription() {
+		return selfDescription;
+	}
+	public void setSelfDescription(String selfDescription) {
+		this.selfDescription = selfDescription;
+	}
+	public String getAvatarFileName() {
+		return avatarFileName;
+	}
+	public void setAvatarFileName(String avatarFileName) {
+		this.avatarFileName = avatarFileName;
+	}
+	public String getHomeImageFileName() {
+		return homeImageFileName;
+	}
+	public void setHomeImageFileName(String homeImageFileName) {
+		this.homeImageFileName = homeImageFileName;
+	}
 	public String getId() {
 		return id;
 	}
@@ -29,5 +50,12 @@ public class User implements java.io.Serializable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getSelfDescriptionHTML() {
+	    if (selfDescription == null || "".equals(selfDescription)) {
+	        return "";
+	    }
+	    return selfDescription.replaceAll("\\r\\n|\\n\\r|\\n|\r", "<br>");
 	}
 }

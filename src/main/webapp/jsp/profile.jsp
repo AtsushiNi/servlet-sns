@@ -19,8 +19,8 @@
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10">
 			<div class="main-content">
 				<div>
-					<img src="../assets/image.png" style="width:100%;"/>
-		   			<img src="../assets/avatar.jpeg" class="rounded-circle shadow-4" id="avatar" />
+					<img src=${currentUser.getHomeImageFileName().isEmpty() ? "../assets/image.png" : "../assets/homeImages/".concat(currentUser.getHomeImageFileName())} id="home-image"/>
+		   			<img src=${currentUser.getAvatarFileName().isEmpty() ? "../assets/avatar.jpeg" : "../assets/avatars/".concat(currentUser.getAvatarFileName())} class="rounded-circle shadow-4" id="avatar" />
 
 					<div id="profile-edit-button-section">
 						<button class="btn btn-outline-secondary" id="profile-edit-button" data-toggle="modal" data-target="#modal">プロフィールを編集</button>
@@ -34,13 +34,13 @@
 
 									<div class="modal-body"> 
 										<div id="modal-home-image-wrapper" >
-											<img id="modal-home-image" src="../assets/image.png"/>
+											<img id="modal-home-image" src=${currentUser.getHomeImageFileName().isEmpty() ? "../assets/image.png" : "../assets/homeImages/".concat(currentUser.getHomeImageFileName())} />
 								   			<div class="rounded-circle" id="modal-home-image-circle"></div>
 								   			<img src="../assets/camera.png" id="modal-home-image-icon" />
 								   		</div>
 										<div class="rounded-circle shadow-4" id="modal-avatar-wrapper" >
 											<div style="position:relative;height:100%;">
-									   			<img class="rounded-circle" src="../assets/avatar.jpeg" id="modal-avatar"/>
+									   			<img class="rounded-circle" src=${currentUser.getAvatarFileName().isEmpty() ? "../assets/avatar.jpeg" : "../assets/avatars/".concat(currentUser.getAvatarFileName())} id="modal-avatar"/>
 									   			<div class="rounded-circle" id="modal-avatar-circle"></div>
 									   			<img src="../assets/camera.png" id="modal-avatar-icon"/>
 								   			</div>
@@ -53,7 +53,7 @@
 								   			<input name="name" class="form-control" id="modal-name-input" type="text" value="${currentUser.name}">
 	
 								   			<label for="modal-description-input" style="margin-top:30px;">自己紹介</label>
-								   			<textarea name="self-description" class="form-control" id="modal-description-input" type="text"></textarea>
+								   			<textarea name="self-description" class="form-control" id="modal-description-input" type="text">${currentUser.selfDescription}</textarea>
 								   			<input type="submit" id="edit-profile-submit" style="display:none;"/>
 							   			</form>
 									</div>
@@ -64,7 +64,8 @@
 					</div>
 
 		   			<h4>${currentUser.name}</h4>
-		   			<div>${user.id}</div>
+		   			<div id="user-id">${currentUser.id}</div>
+		   			<div id="self-description">${currentUser.getSelfDescriptionHTML()}</div>
 		   			<div>
 		   				<span class="font-weight-bold">${followerCount}</span>
 		   				<span>フォロワー</span>

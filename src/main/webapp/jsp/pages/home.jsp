@@ -13,7 +13,9 @@
 	<div class="row">
 	
 		<!-- サイドバー -->
-		<%@ include file="../components/sidebar.jsp" %>
+		<jsp:include page="../components/sidebar.jsp">
+			<jsp:param name="page" value="home"/>
+		</jsp:include>
 		
 		<!-- メイン -->
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">

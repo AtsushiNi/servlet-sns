@@ -3,4 +3,9 @@
 ```
 java -jar src/main/webapp/WEB-INF/lib/h2-2.2.220.jar
 ```
-url:jdbc:h2:tcp://localhost/./src/main/webapp/WEB-INF/lib/test
+
+## DBの設定項目
+driver: org.h2.Driver
+url: jdbc:h2:tcp://localhost/./src/main/webapp/WEB-INF/lib/test  
+user: sa  
+password: password

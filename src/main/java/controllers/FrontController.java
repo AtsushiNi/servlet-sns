@@ -75,8 +75,9 @@ public class FrontController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		try {
-			String path = request.getServletPath().substring(5);
-			String name = "actions." + path.replace(".action", "Action").replace('/', '.');
+			String path = request.getServletPath();
+			int slashIndex = path.lastIndexOf("/");
+			String name = "actions." + path.substring(slashIndex+1).replace(".action", "Action");
 			Action action = (Action)Class.forName(name).getDeclaredConstructor(null).newInstance();
 			String url = action.execute(request, response);
 			request.getRequestDispatcher(url).forward(request, response);

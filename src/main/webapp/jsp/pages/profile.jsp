@@ -2,25 +2,25 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:include page="head.jsp">
+<jsp:include page="../components/head.jsp">
 	<jsp:param name="page" value="profile" />
 </jsp:include>
 
 <!-- ヘッダー -->
-<%@ include file="header.jsp" %>
+<%@ include file="../components/header.jsp" %>
 
 <div class="container-fluid">
  	<div class="row">
 
 		<!-- サイドバー -->
-		<%@ include file="sidebar.jsp" %>
+		<%@ include file="../components/sidebar.jsp" %>
 
 		<!-- メイン -->
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10">
 			<div class="main-content">
 				<div>
-					<img src=${currentUser.getHomeImageFileName().isEmpty() ? "../assets/image.png" : "../assets/homeImages/".concat(currentUser.getHomeImageFileName())} id="home-image"/>
-		   			<img src=${currentUser.getAvatarFileName().isEmpty() ? "../assets/avatar.jpeg" : "../assets/avatars/".concat(currentUser.getAvatarFileName())} class="rounded-circle shadow-4" id="avatar" />
+					<img src=${currentUser.getHomeImageFileName().isEmpty() ? "../../assets/image.png" : "../../assets/homeImages/".concat(currentUser.getHomeImageFileName())} id="home-image"/>
+		   			<img src=${currentUser.getAvatarFileName().isEmpty() ? "../../assets/avatar.jpeg" : "../../assets/avatars/".concat(currentUser.getAvatarFileName())} class="rounded-circle shadow-4" id="avatar" />
 
 					<div id="profile-edit-button-section">
 						<button class="btn btn-outline-secondary" id="profile-edit-button" data-toggle="modal" data-target="#modal">プロフィールを編集</button>
@@ -34,15 +34,15 @@
 
 									<div class="modal-body"> 
 										<div id="modal-home-image-wrapper" >
-											<img id="modal-home-image" src=${currentUser.getHomeImageFileName().isEmpty() ? "../assets/image.png" : "../assets/homeImages/".concat(currentUser.getHomeImageFileName())} />
+											<img id="modal-home-image" src=${currentUser.getHomeImageFileName().isEmpty() ? "../../assets/image.png" : "../../assets/homeImages/".concat(currentUser.getHomeImageFileName())} />
 								   			<div class="rounded-circle" id="modal-home-image-circle"></div>
-								   			<img src="../assets/camera.png" id="modal-home-image-icon" />
+								   			<img src="../../assets/camera.png" id="modal-home-image-icon" />
 								   		</div>
 										<div class="rounded-circle shadow-4" id="modal-avatar-wrapper" >
 											<div style="position:relative;height:100%;">
-									   			<img class="rounded-circle" src=${currentUser.getAvatarFileName().isEmpty() ? "../assets/avatar.jpeg" : "../assets/avatars/".concat(currentUser.getAvatarFileName())} id="modal-avatar"/>
+									   			<img class="rounded-circle" src=${currentUser.getAvatarFileName().isEmpty() ? "../../assets/avatar.jpeg" : "../../assets/avatars/".concat(currentUser.getAvatarFileName())} id="modal-avatar"/>
 									   			<div class="rounded-circle" id="modal-avatar-circle"></div>
-									   			<img src="../assets/camera.png" id="modal-avatar-icon"/>
+									   			<img src="../../assets/camera.png" id="modal-avatar-icon"/>
 								   			</div>
 								   		</div>
 							   			<form action="EditProfile.action" method="post" enctype="multipart/form-data">
@@ -77,7 +77,7 @@
 			      <c:forEach var="post" items="${posts}">
 			      	<div class="card">
 			      		<div style="display: flex">
-				      		<img src="../assets/avatar.jpeg" class="rounded-circle shadow-4" style="width:50px; height:50px; margin: 10px;" />
+				      		<img src="../../assets/avatar.jpeg" class="rounded-circle shadow-4" style="width:50px; height:50px; margin: 10px;" />
 				      		<div style="width:100%;">
 					      		<div style="margin: 5px 0; font-weight:bold;">${post.user.name}</div>
 					      		<div>${post.text}</div>

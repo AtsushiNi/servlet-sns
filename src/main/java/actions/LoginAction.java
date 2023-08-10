@@ -23,11 +23,12 @@ public class LoginAction extends Action {
 			session.setAttribute("userId", user.getId()); // とりあえず
 			request.setAttribute("currentUser", user);
 			String status = (String)session.getAttribute("status");
+
 			if(status != null && status.equals("error")) {
 				session.setAttribute("status", "login");
-				return ((String)session.getAttribute("targetURI")).substring(16);
+				return ((String)session.getAttribute("targetURI")).substring(22);
 			} else {
-				session.setAttribute("targetURI", "/ServletSNS/jsp/home.jsp");
+				session.setAttribute("targetURI", "/ServletSNS/jsp/pages/home.jsp");
 				return "Home.action";
 			}
 		}

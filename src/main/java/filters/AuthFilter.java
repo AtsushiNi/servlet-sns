@@ -25,8 +25,8 @@ public class AuthFilter implements Filter {
 		String targetURI = httpRequest.getRequestURI();
 
 		if(
-			targetURI.equals("/ServletSNS/jsp/login.jsp")
-			|| targetURI.equals("/ServletSNS/jsp/Login.action")
+			targetURI.equals("/ServletSNS/jsp/pages/login.jsp")
+			|| targetURI.equals("/ServletSNS/jsp/pages/Login.action")
 		) {
 			chain.doFilter(request, response);
 			return;

@@ -2,18 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:include page="head.jsp">
+<jsp:include page="../components/head.jsp">
 	<jsp:param name="page" value="userIndex" />
 </jsp:include>
 
 <!-- ヘッダー -->
-<%@ include file="header.jsp" %>
+<%@ include file="../components/header.jsp" %>
 
 <div class="container-fluid">
   <div class="row">
   
   <!-- サイドバー -->
-  <%@ include file="sidebar.jsp" %>
+  <%@ include file="../components/sidebar.jsp" %>
 
 	<!-- メイン -->
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">

@@ -74,18 +74,18 @@
 		   			</div>
 		   		</div>
 		   		<div>
-			      <c:forEach var="post" items="${posts}">
-			      	<div class="card">
-			      		<div style="display: flex">
-				      		<img src="../../assets/avatar.jpeg" class="rounded-circle shadow-4" style="width:50px; height:50px; margin: 10px;" />
-				      		<div style="width:100%;">
-					      		<div style="margin: 5px 0; font-weight:bold;">${post.user.name}</div>
-					      		<div>${post.text}</div>
-					      		<div style="text-align:right;">${post.createdAt}</div>
-					      	</div>
-					    </div>
-			      	</div>
-			      </c:forEach>
+		   			<ul class="list-unstyled">
+						<c:forEach var="post" items="${posts}">
+					      	<li class="media my-3 py-1">
+					      		<img src=${currentUser.getAvatarFileName().isEmpty() ? "../../assets/avatar.jpeg" : "../../assets/avatars/".concat(currentUser.getAvatarFileName())} class="rounded-circle shadow-4" style="width:50px; height:50px; margin: 10px;" />
+					      		<div class="media-body">
+						      		<h5 class="mt-0">${post.user.name}</h5>
+						      		<div>${post.text}</div>
+						      		<div style="text-align:right;">${post.createdAt}</div>
+						      	</div>
+					      	</li>
+						</c:forEach>
+					</ul>
 		   		</div>
 		   	</div>
 		</main>

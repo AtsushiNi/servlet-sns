@@ -110,3 +110,7 @@
 #self-description {
 	margin: 20px;
 }
+
+.media {
+	border-bottom: solid silver 1px;
+}

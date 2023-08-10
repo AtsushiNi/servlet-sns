@@ -6,7 +6,6 @@ img {
 	margin: 10px;
 }
 
-.user-name {
-	margin: 5px 0;
-	font-weight: bold;
+.media {
+	border-bottom: solid silver 1px;
 }

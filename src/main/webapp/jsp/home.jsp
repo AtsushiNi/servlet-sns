@@ -21,18 +21,18 @@
 				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h1 class="h2">Home</h1>
 				</div>
-				<c:forEach var="post" items="${posts}">
-				 	<div class="card">
-				 		<div style="display: flex">
-					  		<img src="../assets/avatar.jpeg" class="rounded-circle shadow-4" />
-					  		<div style="width:100%;">
-						   		<div class="user-name">${post.user.name}</div>
+				<ul class="list-unstyled">
+					<c:forEach var="post" items="${posts}">
+					 	<li class="media my-3 py-1">
+					  		<img src=${post.user.getAvatarFileName().isEmpty() ? "../assets/avatar.jpeg" : "../assets/avatars/".concat(post.user.getAvatarFileName())} class="rounded-circle shadow-4" />
+					  		<div class="media-body">
+						   		<h5 class="mt-0">${post.user.name}</h5>
 						   		<div>${post.text}</div>
 						   		<div style="text-align:right;">${post.createdAt}</div>
 					  		</div>
-						</div>
-				 	</div>
-				</c:forEach>
+					 	</li>
+					</c:forEach>
+				</ul>
 			</div>
 		</main>
 	</div>

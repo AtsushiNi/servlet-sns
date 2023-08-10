@@ -32,7 +32,6 @@ public class HomeAction extends Action {
 			.sorted((a, b) -> (a.getCreatedAt().getTime() - b.getCreatedAt().getTime())<0 ? 1 : -1)
 			.collect(Collectors.toList());
 
-		System.out.println(sortedPosts);
 		request.setAttribute("posts", sortedPosts);
 		return "home.jsp";
 	}

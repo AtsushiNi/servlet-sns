@@ -32,7 +32,7 @@ insert into post(text, created_at, user_id) values ('test text', '2023-7-17 8:29
 insert into post(text, created_at, user_id) values ('test text user 2-1', '2023-7-14 8:29:00', '@user2');
 insert into post(text, created_at, user_id) values ('test text user 2-2', '2023-7-15 8:29:00', '@user2');
 insert into post(text, created_at, user_id) values ('test text user 2-4', '2023-7-17 8:29:00', '@user2');
-insert into post(text, created_at, user_id) values ('test text user 2-3', '2023-7-16 8:29:00', '@user2');
+insert into post(text, created_at, user_id) values ('米CPIは市場予想を小幅に下回りました。市場に安心感が広がり、米国株は上昇しています。昨日まで株価はやや調整色が出ていたこともあり、自律的なリバウンドという面もありそうです。日経平均先物も上昇しています。一方、為替はCPIの反応は一時的で、その後、144円台へと円安が進んでいます', '2023-7-16 8:29:00', '@user2');
 
 /* follow */
 create table follow (

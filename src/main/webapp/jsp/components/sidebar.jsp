@@ -80,9 +80,9 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="file-text"></span>
-          #######
+        <a class="nav-link" href="InitDatabase.action">
+          <span data-feather="database"></span>
+          データベース初期化
         </a>
       </li>
     </ul>

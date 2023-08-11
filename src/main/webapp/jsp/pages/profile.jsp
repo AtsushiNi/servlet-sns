@@ -81,7 +81,10 @@
 					      	<li class="media my-3 py-1">
 					      		<img src=${currentUser.getAvatarFileName().isEmpty() ? "../../assets/avatar.jpeg" : "../../assets/avatars/".concat(currentUser.getAvatarFileName())} class="rounded-circle shadow-4" style="width:50px; height:50px; margin: 10px;" />
 					      		<div class="media-body">
-						      		<h5 class="mt-0">${post.user.name}</h5>
+					      			<div class="d-flex">
+							      		<h6 class="mr-1">${post.user.name}</h6>
+							      		<div class="text-secondary">${post.user.id}</div>
+							      	</div>
 						      		<div>${post.text}</div>
 						      		<div style="text-align:right;">${post.createdAtText()}</div>
 						      	</div>
@@ -94,6 +97,6 @@
 	</div>
 </div>
 <script>feather.replace()</script>
-<script src="../assets/js/profile.js"></script>
+<script src="../../assets/js/profile.js"></script>
 </body>
 </html>

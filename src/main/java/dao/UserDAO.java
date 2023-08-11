@@ -158,5 +158,8 @@ public class UserDAO extends DAO {
 		st.setString(6, user.getHomeImageFileName());
 		st.setString(7, user.getId());
 		st.executeUpdate();
+
+		st.close();
+		con.close();
 	}
 }

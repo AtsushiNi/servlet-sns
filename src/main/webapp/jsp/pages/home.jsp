@@ -24,10 +24,10 @@
 					<h1 class="h2">Home</h1>
 				</div>
 				<ul class="list-unstyled">
-					<li class="media my-3 py-1">
+					<li class="media py-3">
 						<img src=${currentUser.getAvatarFileName().isEmpty() ? "../../assets/avatar.jpeg" : "../../assets/avatars/".concat(currentUser.getAvatarFileName())} class="rounded-circle shadow-4" />
 						<div class="media-body">
-							<h5 class="mt-0">${currentUser.name}</h5>
+							<h6 class="mt-0">${currentUser.name}</h6>
 							<form action="CreatePost.action" method="post">
 								<textarea name="text" class="form-control" placeholder="今何してる？"></textarea>
 						   		<button type="submit" class="btn btn-primary float-right my-2">投稿する</button>
@@ -35,14 +35,17 @@
 						</div>
 					</li>
 					<c:forEach var="post" items="${posts}">
-					 	<li class="media my-3 py-1">
+					 	<a class="media py-3 post-row" href="PostDetail.action?id=${post.id}">
 					  		<img src=${post.user.getAvatarFileName().isEmpty() ? "../../assets/avatar.jpeg" : "../../assets/avatars/".concat(post.user.getAvatarFileName())} class="rounded-circle shadow-4" />
 					  		<div class="media-body">
-						   		<h5 class="mt-0">${post.user.name}</h5>
+					  			<div class="d-flex">
+							   		<h6 class="mr-1">${post.user.name}</h6>
+							   		<div class="text-secondary">${post.user.id}</div>
+						   		</div>
 						   		<div>${post.text}</div>
 						   		<div style="text-align:right;">${post.createdAtText()}</div>
 					  		</div>
-					 	</li>
+					 	</a>
 					</c:forEach>
 				</ul>
 			</div>

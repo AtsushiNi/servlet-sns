@@ -19,9 +19,11 @@ public class HomeAction extends Action {
 		
 		UserDAO userDAO = new UserDAO();
 		List<User> followers = userDAO.getFollowers(currentUser.getId());
+		followers.add(currentUser);
 
 		List<Post> posts = new ArrayList<Post>();
 		PostDAO postDAO = new PostDAO();
+
 		for(User follower : followers) {
 			posts.addAll(postDAO.findAllByUser(follower));
 		}

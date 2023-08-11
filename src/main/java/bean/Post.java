@@ -1,6 +1,8 @@
 package bean;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Post implements java.io.Serializable {
 	private int id;
@@ -31,5 +33,20 @@ public class Post implements java.io.Serializable {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public String createdAtText() {
+		Calendar now = Calendar.getInstance();
+		Calendar created = Calendar.getInstance();
+		created.setTimeInMillis(createdAt.getTime());
+
+		if(now.get(Calendar.DATE) == created.get(Calendar.DATE)){
+			SimpleDateFormat format = new SimpleDateFormat("hh:mm");
+			return format.format(created.getTime());
+		} else {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+			return format.format(created.getTime());
+		}
+		
 	}
 }

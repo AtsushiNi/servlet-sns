@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,5 +33,17 @@ public class PostDAO extends DAO {
 		st.close();
 		con.close();
 		return posts;
+	}
+	
+	public void create(Post post) throws Exception {
+		post.setCreatedAt(new Timestamp(System.currentTimeMillis()));
+		
+		Connection con = getConnection();
+		
+		PreparedStatement st = con.prepareStatement("insert into post(text, created_at, user_id) values (?,?,?)");
+		st.setString(1, post.getText());
+		st.setTimestamp(2, post.getCreatedAt());
+		st.setString(3, post.getUser().getId());
+		st.execute();
 	}
 }

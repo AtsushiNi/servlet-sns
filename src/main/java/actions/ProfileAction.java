@@ -1,6 +1,7 @@
 package actions;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +26,13 @@ public class ProfileAction  extends Action {
 //		自分の投稿一覧
 		PostDAO postDAO = new PostDAO();
 		List<Post> posts = postDAO.findAllByUser(currentUser);
-		request.setAttribute("posts", posts);
+
+		List<Post> sortedPosts = posts
+				.stream()
+				.sorted((a, b) -> (a.getCreatedAt().getTime() - b.getCreatedAt().getTime())<0 ? 1 : -1)
+				.collect(Collectors.toList());
+		
+		request.setAttribute("posts", sortedPosts);
 
 		return "profile.jsp";
 	}

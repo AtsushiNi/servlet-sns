@@ -83,7 +83,7 @@
 					      		<div class="media-body">
 						      		<h5 class="mt-0">${post.user.name}</h5>
 						      		<div>${post.text}</div>
-						      		<div style="text-align:right;">${post.createdAt}</div>
+						      		<div style="text-align:right;">${post.createdAtText()}</div>
 						      	</div>
 					      	</li>
 						</c:forEach>

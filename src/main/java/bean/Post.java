@@ -9,6 +9,7 @@ public class Post implements java.io.Serializable {
 	private String text;
 	private Timestamp createdAt;
 	private User user;
+	private Integer replyToId = null;
 
 	public int getId() {
 		return id;
@@ -33,6 +34,12 @@ public class Post implements java.io.Serializable {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public Integer getReplyToId() {
+		return replyToId;
+	}
+	public void setReplyToId(Integer replyToId) {
+		this.replyToId = replyToId;
 	}
 	
 	public String createdAtText() {

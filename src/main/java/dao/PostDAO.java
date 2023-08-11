@@ -99,10 +99,15 @@ public class PostDAO extends DAO {
 		
 		Connection con = getConnection();
 		
-		PreparedStatement st = con.prepareStatement("insert into post(text, created_at, user_id) values (?,?,?)");
+		PreparedStatement st = con.prepareStatement("insert into post(text, created_at, user_id, reply_to_id) values (?,?,?,?)");
 		st.setString(1, post.getText());
 		st.setTimestamp(2, post.getCreatedAt());
 		st.setString(3, post.getUser().getId());
+		if(post.getReplyToId() != null) {
+			st.setInt(4, post.getReplyToId());
+		} else {
+			st.setNull(4, java.sql.Types.INTEGER);
+		}
 		st.execute();
 
 		st.close();

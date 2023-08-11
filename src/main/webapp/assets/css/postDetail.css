@@ -19,3 +19,6 @@ a.post-row:hover {
 	color: inherit;
 	text-decoration: none;
 }
+a.not-a:hover {
+	background-color: inherit !important;
+}

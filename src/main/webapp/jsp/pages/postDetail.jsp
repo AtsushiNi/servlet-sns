@@ -30,6 +30,18 @@
 					   		</div>
 					   		<div>${post.text}</div>
 					   		<div style="text-align:right;">${post.createdAtText()}</div>
+					   		
+							<a class="media py-3 post-row not-a">
+								<img src=${currentUser.getAvatarFileName().isEmpty() ? "../../assets/avatar.jpeg" : "../../assets/avatars/".concat(currentUser.getAvatarFileName())} class="rounded-circle shadow-4" />
+								<div class="media-body">
+									<h6 class="mt-0">${currentUser.name}</h6>
+									<form action="Reply.action" method="post">
+										<textarea name="text" class="form-control" placeholder="返信する"></textarea>
+										<input name="id" type="hidden" value=${post.id} />
+								   		<button type="submit" class="btn btn-primary float-right my-2">投稿する</button>
+								   	</form>
+								</div>
+							</a>
 
 							<c:forEach var="post" items="${replies}">
 							 	<a class="media py-3 post-row" href="PostDetail.action?id=${post.id}">

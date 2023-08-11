@@ -114,3 +114,13 @@
 .media {
 	border-bottom: solid silver 1px;
 }
+
+.post-row {
+	color: inherit;
+	text-decoration: none;
+}
+.post-row:hover {
+	background-color: whitesmoke;
+	color: inherit;
+	text-decoration: none;
+}

@@ -29,9 +29,19 @@
 						   		<div class="text-secondary">${post.user.id}</div>
 					   		</div>
 					   		<div>${post.text}</div>
-					   		<div style="text-align:right;">${post.createdAtText()}</div>
+					   		<div class="d-flex align-items-center justify-content-between mt-2">
+					   			<div class="d-flex">
+						   			<span data-feather="message-circle" style="color:silver;"></span>
+						   			<span class="text-secondary mr-4 ml-1">8</span>
+						   			<span data-feather="repeat" style="color:silver;"></span>
+						   			<span class="text-secondary mr-4 ml-1">8</span>
+						   			<span data-feather="heart" style="color:silver;"></span>
+						   			<span class="text-secondary mr-4 ml-1">8</span>
+						   		</div>
+						   		<div style="text-align:right;">${post.createdAtText()}</div>
+					   		</div>
 					   		
-							<a class="media py-3 post-row not-a">
+							<a class="media mt-3 py-3 post-row not-a">
 								<img src=${currentUser.getAvatarFileName().isEmpty() ? "../../assets/avatar.jpeg" : "../../assets/avatars/".concat(currentUser.getAvatarFileName())} class="rounded-circle shadow-4" />
 								<div class="media-body">
 									<h6 class="mt-0">${currentUser.name}</h6>
@@ -52,7 +62,17 @@
 									   		<div class="text-secondary">${post.user.id}</div>
 								   		</div>
 								   		<div>${post.text}</div>
-								   		<div style="text-align:right;">${post.createdAtText()}</div>
+								   		<div class="d-flex align-items-center justify-content-between mt-2">
+								   			<div class="d-flex">
+									   			<span data-feather="message-circle" style="color:silver;"></span>
+									   			<span class="text-secondary mr-4 ml-1">8</span>
+									   			<span data-feather="repeat" style="color:silver;"></span>
+									   			<span class="text-secondary mr-4 ml-1">8</span>
+									   			<span data-feather="heart" style="color:silver;"></span>
+									   			<span class="text-secondary mr-4 ml-1">8</span>
+									   		</div>
+									   		<div style="text-align:right;">${post.createdAtText()}</div>
+								   		</div>
 							  		</div>
 							 	</a>
 							 </c:forEach>

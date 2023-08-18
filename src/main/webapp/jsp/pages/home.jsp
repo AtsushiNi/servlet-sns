@@ -54,7 +54,10 @@
 								   		</div>
 							   			<span class="text-secondary mr-4 ml-1 action-number">8</span>
 						   				<div class="action-wrapper">
-								   			<span data-feather="heart" class="action-button"></span>
+								   			<span data-feather="heart" class="action-button favorite-button"></span>
+								   			<div style="display:none;">
+								   				<div class="postId">${post.id}</div>
+								   			</div>
 								   		</div>
 							   			<span class="text-secondary mr-4 ml-1 action-number">${post.favoriteNumber}</span>
 							   		</div>

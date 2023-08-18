@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import bean.User;
 import dao.UserDAO;
 
-@WebFilter(urlPatterns = {"/jsp/*"})
+@WebFilter(urlPatterns = {"/jsp/*", "/ajaxEndpoint/*"})
 public class AuthFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest)request;

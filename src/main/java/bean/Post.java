@@ -8,6 +8,7 @@ public class Post implements java.io.Serializable {
 	private int id;
 	private String text;
 	private Timestamp createdAt;
+	private int favoriteNumber;
 	private User user;
 	private Integer replyToId = null;
 
@@ -40,6 +41,12 @@ public class Post implements java.io.Serializable {
 	}
 	public void setReplyToId(Integer replyToId) {
 		this.replyToId = replyToId;
+	}
+	public Integer getFavoriteNumber() {
+		return favoriteNumber;
+	}
+	public void setFavoriteNumber(Integer favoriteNumber) {
+		this.favoriteNumber = favoriteNumber;
 	}
 	
 	public String createdAtText() {

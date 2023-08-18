@@ -14,7 +14,14 @@ public class PostDAO extends DAO {
 	public Post findById(int id) throws Exception {
 		Connection con = getConnection();
 		
-		PreparedStatement st = con.prepareStatement("SELECT * FROM posts JOIN users ON posts.user_id=users.id WHERE posts.id=?");
+		PreparedStatement st = con.prepareStatement("""
+				SELECT posts.*, users.*, COUNT(favorites.post_id) AS favs
+				FROM posts
+				JOIN users ON posts.user_id=users.id
+				LEFT JOIN favorites ON posts.id=favorites.post_id
+				WHERE posts.id=?
+				GROUP BY posts.id
+		""");
 		st.setInt(1, id);
 		ResultSet rs = st.executeQuery();
 		rs.next();
@@ -31,6 +38,7 @@ public class PostDAO extends DAO {
 		post.setId(rs.getInt("posts.id"));
 		post.setText(rs.getString("posts.text"));
 		post.setCreatedAt(rs.getTimestamp("posts.created_at"));
+		post.setFavoriteNumber(rs.getInt("favs"));
 		post.setUser(user);
 		
 		st.close();
@@ -76,15 +84,22 @@ public class PostDAO extends DAO {
 		Connection con = getConnection();
 		
 		PreparedStatement st;
-		st = con.prepareStatement("select * from posts where user_id=?");
+		st = con.prepareStatement("""
+			SELECT posts.*, COUNT(favorites.post_id) AS favs 
+			FROM posts
+			LEFT JOIN favorites ON posts.id=favorites.post_id
+			WHERE posts.user_id=?
+			GROUP BY posts.id
+		""");
 		st.setString(1, user.getId());
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
 			Post post = new Post();
-			post.setId(rs.getInt("id"));
-			post.setText(rs.getString("text"));
-			post.setCreatedAt(rs.getTimestamp("created_at"));
+			post.setId(rs.getInt("posts.id"));
+			post.setText(rs.getString("posts.text"));
+			post.setCreatedAt(rs.getTimestamp("posts.created_at"));
+			post.setFavoriteNumber(rs.getInt("favs"));
 			post.setUser(user);
 			posts.add(post);
 		}

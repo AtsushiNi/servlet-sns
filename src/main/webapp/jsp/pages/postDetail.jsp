@@ -36,7 +36,7 @@
 						   			<span data-feather="repeat" style="color:silver;"></span>
 						   			<span class="text-secondary mr-4 ml-1">8</span>
 						   			<span data-feather="heart" style="color:silver;"></span>
-						   			<span class="text-secondary mr-4 ml-1">8</span>
+						   			<span class="text-secondary mr-4 ml-1">${post.favoriteNumber}</span>
 						   		</div>
 						   		<div style="text-align:right;">${post.createdAtText()}</div>
 					   		</div>
@@ -69,7 +69,7 @@
 									   			<span data-feather="repeat" style="color:silver;"></span>
 									   			<span class="text-secondary mr-4 ml-1">8</span>
 									   			<span data-feather="heart" style="color:silver;"></span>
-									   			<span class="text-secondary mr-4 ml-1">8</span>
+									   			<span class="text-secondary mr-4 ml-1">${post.favoriteNumber}</span>
 									   		</div>
 									   		<div style="text-align:right;">${post.createdAtText()}</div>
 								   		</div>

@@ -56,7 +56,7 @@
 						   				<div class="action-wrapper">
 								   			<span data-feather="heart" class="action-button"></span>
 								   		</div>
-							   			<span class="text-secondary mr-4 ml-1 action-number">8</span>
+							   			<span class="text-secondary mr-4 ml-1 action-number">${post.favoriteNumber}</span>
 							   		</div>
 							   		<div style="text-align:right;">${post.createdAtText()}</div>
 						   		</div>

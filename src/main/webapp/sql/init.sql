@@ -2,9 +2,10 @@
 drop table follows if exists;
 drop table posts if exists;
 drop table users if exists;
+drop table favorites if exists;
 
 /* データ作成 */
-/* user */
+/* users */
 create table users (
 	id varchar(100) primary key,
 	name varchar(100) not null,
@@ -19,7 +20,7 @@ insert into users (id, name, email, password, selfDescription, avatarFileName, h
 insert into users (id, name, email, password, selfDescription, avatarFileName, homeImageFileName) values('@user2', 'user2', 'user2@email.com', 'pass', '', '', '');
 insert into users (id, name, email, password, selfDescription, avatarFileName, homeImageFileName) values('@user3', 'user3', 'user3@email.com', 'pass', '', '', '');
 
-/* post */
+/* posts */
 create table posts(
 	id int auto_increment primary key,
 	text varchar(500) not null,
@@ -40,7 +41,7 @@ insert into posts(text, created_at, user_id, reply_to_id) values ('リプライ2
 insert into posts(text, created_at, user_id, reply_to_id) values ('リプライ3', '2023-6-17 8:29:00', '@user3',2);
 insert into posts(text, created_at, user_id, reply_to_id) values ('リプライ4', '2023-7-17 8:29:00', '@user3',2);
 
-/* follow */
+/* follows */
 create table follows (
 	id int auto_increment primary key,
 	follower_id varchar(100) not null,
@@ -50,3 +51,21 @@ create table follows (
 );
 
 insert into follows(follower_id, followed_id) values('@user', '@user2');
+
+/* favorites */
+create table favorites (
+	id int auto_increment primary key,
+	user_id varchar(100) not null,
+	post_id int not null,
+	foreign key (user_id) references users(id),
+	foreign key (post_id) references posts(id)
+);
+
+insert into favorites(user_id, post_id) values('@user', 1);
+insert into favorites(user_id, post_id) values('@user2', 1);
+insert into favorites(user_id, post_id) values('@user3', 1);
+insert into favorites(user_id, post_id) values('@user', 2);
+insert into favorites(user_id, post_id) values('@user2', 2);
+insert into favorites(user_id, post_id) values('@user3', 2);
+insert into favorites(user_id, post_id) values('@user', 3);
+insert into favorites(user_id, post_id) values('@user2', 3);

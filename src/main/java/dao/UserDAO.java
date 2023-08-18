@@ -15,7 +15,7 @@ public class UserDAO extends DAO {
 		Connection con = getConnection();
 		
 		PreparedStatement st;
-		st = con.prepareStatement("select * from \"user\" where id=? and password=?");
+		st = con.prepareStatement("select * from users where id=? and password=?");
 		st.setString(1, id);
 		st.setString(2, password);
 		ResultSet rs = st.executeQuery();
@@ -43,7 +43,7 @@ public class UserDAO extends DAO {
 		Connection con = getConnection();
 		
 		PreparedStatement st;
-		st = con.prepareStatement("select * from \"user\"");
+		st = con.prepareStatement("select * from users");
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
@@ -69,7 +69,7 @@ public class UserDAO extends DAO {
 		Connection con = getConnection();
 		
 		PreparedStatement st;
-		st = con.prepareStatement("select * from \"user\" where id=?");
+		st = con.prepareStatement("select * from users where id=?");
 		st.setString(1, id);
 		ResultSet rs = st.executeQuery();
 		
@@ -97,7 +97,7 @@ public class UserDAO extends DAO {
 		Connection con = getConnection();
 		
 		PreparedStatement st;
-		st = con.prepareStatement("select * from \"user\" inner join follow where follow.followed_id = \"user\".id and follow.follower_id = ?");
+		st = con.prepareStatement("select * from users inner join follows where follows.followed_id = users.id and follows.follower_id = ?");
 		st.setString(1, id);
 		ResultSet rs = st.executeQuery();
 		
@@ -121,7 +121,7 @@ public class UserDAO extends DAO {
 	public int getFollowerCount(String id) throws Exception {
 		Connection con = getConnection();
 		PreparedStatement st;
-		st = con.prepareStatement("select count(*) as num from follow where follower_id = ?");
+		st = con.prepareStatement("select count(*) as num from follows where follower_id = ?");
 		st.setString(1, id);
 		ResultSet rs = st.executeQuery();
 		rs.next();
@@ -135,7 +135,7 @@ public class UserDAO extends DAO {
 	public int getFollowedCount(String id) throws Exception {
 		Connection con = getConnection();
 		PreparedStatement st;
-		st = con.prepareStatement("select count(*) as num from follow where followed_id = ?");
+		st = con.prepareStatement("select count(*) as num from follows where followed_id = ?");
 		st.setString(1, id);
 		ResultSet rs = st.executeQuery();
 		rs.next();
@@ -149,7 +149,7 @@ public class UserDAO extends DAO {
 	public void update(User user) throws Exception {
 		Connection con = getConnection();
 		PreparedStatement st;
-		st = con.prepareStatement("update \"user\" set name=?,email=?,password=?,selfDescription=?,avatarFileName=?,homeImageFileName=? where id=?");
+		st = con.prepareStatement("update users set name=?,email=?,password=?,selfDescription=?,avatarFileName=?,homeImageFileName=? where id=?");
 		st.setString(1, user.getName());
 		st.setString(2, user.getEmail());
 		st.setString(3, user.getPassword());

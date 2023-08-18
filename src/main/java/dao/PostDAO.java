@@ -14,23 +14,23 @@ public class PostDAO extends DAO {
 	public Post findById(int id) throws Exception {
 		Connection con = getConnection();
 		
-		PreparedStatement st = con.prepareStatement("SELECT * FROM post JOIN \"user\" ON post.user_id=\"user\".id WHERE post.id=?");
+		PreparedStatement st = con.prepareStatement("SELECT * FROM posts JOIN users ON posts.user_id=users.id WHERE posts.id=?");
 		st.setInt(1, id);
 		ResultSet rs = st.executeQuery();
 		rs.next();
 
 		User user = new User();
-		user.setId(rs.getString("user.id"));
-		user.setName(rs.getString("user.name"));
-		user.setEmail(rs.getString("user.email"));
-		user.setPassword(rs.getString("user.password"));
-		user.setSelfDescription(rs.getString("user.selfDescription"));
-		user.setAvatarFileName(rs.getString("user.avatarFileName"));
-		user.setHomeImageFileName(rs.getString("user.homeImageFileName"));
+		user.setId(rs.getString("users.id"));
+		user.setName(rs.getString("users.name"));
+		user.setEmail(rs.getString("users.email"));
+		user.setPassword(rs.getString("users.password"));
+		user.setSelfDescription(rs.getString("users.selfDescription"));
+		user.setAvatarFileName(rs.getString("users.avatarFileName"));
+		user.setHomeImageFileName(rs.getString("users.homeImageFileName"));
 		Post post = new Post();
-		post.setId(rs.getInt("post.id"));
-		post.setText(rs.getString("post.text"));
-		post.setCreatedAt(rs.getTimestamp("post.created_at"));
+		post.setId(rs.getInt("posts.id"));
+		post.setText(rs.getString("posts.text"));
+		post.setCreatedAt(rs.getTimestamp("posts.created_at"));
 		post.setUser(user);
 		
 		st.close();
@@ -44,23 +44,23 @@ public class PostDAO extends DAO {
 		Connection con = getConnection();
 		
 		PreparedStatement st;
-		st = con.prepareStatement("select * from post JOIN \"user\" ON post.user_id=\"user\".id where post.reply_to_id=?");
+		st = con.prepareStatement("select * from posts JOIN users ON posts.user_id=users.id where posts.reply_to_id=?");
 		st.setInt(1, postId);
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
 			User user = new User();
-			user.setId(rs.getString("user.id"));
-			user.setName(rs.getString("user.name"));
-			user.setEmail(rs.getString("user.email"));
-			user.setPassword(rs.getString("user.password"));
-			user.setSelfDescription(rs.getString("user.selfDescription"));
-			user.setAvatarFileName(rs.getString("user.avatarFileName"));
-			user.setHomeImageFileName(rs.getString("user.homeImageFileName"));
+			user.setId(rs.getString("users.id"));
+			user.setName(rs.getString("users.name"));
+			user.setEmail(rs.getString("users.email"));
+			user.setPassword(rs.getString("users.password"));
+			user.setSelfDescription(rs.getString("users.selfDescription"));
+			user.setAvatarFileName(rs.getString("users.avatarFileName"));
+			user.setHomeImageFileName(rs.getString("users.homeImageFileName"));
 			Post post = new Post();
-			post.setId(rs.getInt("post.id"));
-			post.setText(rs.getString("post.text"));
-			post.setCreatedAt(rs.getTimestamp("post.created_at"));
+			post.setId(rs.getInt("posts.id"));
+			post.setText(rs.getString("posts.text"));
+			post.setCreatedAt(rs.getTimestamp("posts.created_at"));
 			post.setUser(user);
 			replies.add(post);
 		}
@@ -76,7 +76,7 @@ public class PostDAO extends DAO {
 		Connection con = getConnection();
 		
 		PreparedStatement st;
-		st = con.prepareStatement("select * from post where user_id=?");
+		st = con.prepareStatement("select * from posts where user_id=?");
 		st.setString(1, user.getId());
 		ResultSet rs = st.executeQuery();
 		
@@ -99,7 +99,7 @@ public class PostDAO extends DAO {
 		
 		Connection con = getConnection();
 		
-		PreparedStatement st = con.prepareStatement("insert into post(text, created_at, user_id, reply_to_id) values (?,?,?,?)");
+		PreparedStatement st = con.prepareStatement("insert into posts(text, created_at, user_id, reply_to_id) values (?,?,?,?)");
 		st.setString(1, post.getText());
 		st.setTimestamp(2, post.getCreatedAt());
 		st.setString(3, post.getUser().getId());

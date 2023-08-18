@@ -45,12 +45,18 @@
 						   		<div>${post.text}</div>
 						   		<div class="d-flex align-items-center justify-content-between mt-2">
 						   			<div class="d-flex">
-							   			<span data-feather="message-circle" style="color:silver;"></span>
-							   			<span class="text-secondary mr-4 ml-1">8</span>
-							   			<span data-feather="repeat" style="color:silver;"></span>
-							   			<span class="text-secondary mr-4 ml-1">8</span>
-							   			<span data-feather="heart" style="color:silver;"></span>
-							   			<span class="text-secondary mr-4 ml-1">8</span>
+						   				<div class="action-wrapper">
+								   			<span data-feather="message-circle" class="action-button"></span>
+								   		</div>
+							   			<span class="text-secondary mr-4 ml-1 action-number">8</span>
+						   				<div class="action-wrapper">
+								   			<span data-feather="repeat" class="action-button"></span>
+								   		</div>
+							   			<span class="text-secondary mr-4 ml-1 action-number">8</span>
+						   				<div class="action-wrapper">
+								   			<span data-feather="heart" class="action-button"></span>
+								   		</div>
+							   			<span class="text-secondary mr-4 ml-1 action-number">8</span>
 							   		</div>
 							   		<div style="text-align:right;">${post.createdAtText()}</div>
 						   		</div>
@@ -63,5 +69,6 @@
 	</div>
 </div>
 <script>feather.replace()</script>
+<script src="../../assets/js/home.js"></script>
 </body>
 </html>

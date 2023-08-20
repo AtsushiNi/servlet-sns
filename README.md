@@ -2,6 +2,9 @@
 java サーブレットの練習  
 Twitterを真似たWebアプリを作ってみた
 
+# デモ動画
+https://github.com/AtsushiNi/servlet-sns/assets/45954308/9f22eb4d-259e-462c-824e-24617db6ec5a
+
 # 実装内容
 - ログイン機能
 - bootstrap4でのデザイン
